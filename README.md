@@ -1,10 +1,17 @@
-# 🎏 fucking-java-concurrency
+# fucking-java-concurrency
 
-📖 English Documentation | [📖 中文文档](docs/zh-CN/README.md)
+## change plan
+TODO add solution code
+TODO add new demo
+TODO delete emoji 
+
+## origin 
+
+English Documentation | [中文文档](docs/zh-CN/README.md)
 
 Simple showcases of `Java` concurrency problems, seeing 🙈 is believing 🐵.
 
-## 🍎 Reasons to organize Demo
+## Reasons to organize Demo
 
 - The actual phenomenon that can be observed 🙈 is more intuitive and more trustworthy than the concurrency principle mentioned 🙊.
 - The `Java` language standard library supports threads, multithreading is heavily used in the language itself (such as `GC`) and applications (the server side).
@@ -15,36 +22,34 @@ Examples of concurrency problems you encountered in development are welcome to p
 
 ----------------------------------------
 
-<img src="docs/dining-philosophers-problem.jpg" width="30%" align="right" />
-
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-- [🍺 Update without synchronization cannot be read in another thread](#-update-without-synchronization-cannot-be-read-in-another-thread)
+- [Update without synchronization cannot be read in another thread](#-update-without-synchronization-cannot-be-read-in-another-thread)
     - [Demo description](#demo-description)
     - [Problem statement](#problem-statement)
     - [Quickly run](#quickly-run)
-- [🍺 Infinite loop of `HashMap`](#-infinite-loop-of-hashmap)
+- [Infinite loop of `HashMap`](#-infinite-loop-of-hashmap)
     - [Demo description](#demo-description-1)
     - [Problem statement](#problem-statement-1)
     - [Quickly run](#quickly-run-1)
-- [🍺 Combined state read invalid combination](#-combined-state-read-invalid-combination)
+- [Combined state read invalid combination](#-combined-state-read-invalid-combination)
     - [Demo description](#demo-description-2)
     - [Problem statement](#problem-statement-2)
     - [Quickly run](#quickly-run-2)
-- [🍺 `long` variable read invalid value](#-long-variable-read-invalid-value)
+- [`long` variable read invalid value](#-long-variable-read-invalid-value)
     - [Demo description](#demo-description-3)
     - [Problem statement](#problem-statement-3)
     - [Quickly run](#quickly-run-3)
-- [🍺 the result of concurrency count without synchronization is wrong](#-the-result-of-concurrency-count-without-synchronization-is-wrong)
+- [the result of concurrency count without synchronization is wrong](#-the-result-of-concurrency-count-without-synchronization-is-wrong)
     - [Demo description](#demo-description-4)
     - [Problem statement](#problem-statement-4)
     - [Quickly run](#quickly-run-4)
-- [🍺 Synchronization on mutable fields](#-synchronization-on-mutable-fields)
+- [Synchronization on mutable fields](#-synchronization-on-mutable-fields)
     - [Demo description](#demo-description-5)
     - [Problem statement](#problem-statement-5)
     - [Quickly run](#quickly-run-5)
-- [🍺 Deadlock caused by the symmetric locks](#-deadlock-caused-by-the-symmetric-locks)
+- [Deadlock caused by the symmetric locks](#-deadlock-caused-by-the-symmetric-locks)
     - [Demo description](#demo-description-6)
     - [Problem statement](#problem-statement-6)
     - [Quickly run](#quickly-run-6)
@@ -53,7 +58,7 @@ Examples of concurrency problems you encountered in development are welcome to p
 
 ----------------------------------------
 
-## 🍺 Update without synchronization cannot be read in another thread
+## Update without synchronization cannot be read in another thread
 
 Demo class [`com.oldratlee.fucking.concurrency.NoPublishDemo`](src/main/java/com/oldratlee/fucking/concurrency/NoPublishDemo.java).
 
@@ -71,7 +76,7 @@ After the `main` thread field `stop` is `true`, the task thread continues to run
 mvn compile exec:java -Dexec.mainClass=com.oldratlee.fucking.concurrency.NoPublishDemo
 ```
 
-## 🍺 Infinite loop of `HashMap`
+## Infinite loop of `HashMap`
 
 This problem has been explained in many places.
 
@@ -91,7 +96,7 @@ The main thread Block is determined by no continuous output, that is, the endles
 mvn compile exec:java -Dexec.mainClass=com.oldratlee.fucking.concurrency.HashMapHangDemo
 ```
 
-## 🍺 Combined state read invalid combination
+## Combined state read invalid combination
 
 When programming, multiple state records will be required (state can be a `POJO` object or `int`s, etc.).
 
@@ -114,7 +119,7 @@ The second state read in the task thread is not twice the value of the first sta
 mvn compile exec:java -Dexec.mainClass=com.oldratlee.fucking.concurrency.InvalidCombinationStateDemo
 ```
 
-## 🍺 `long` variable read invalid value
+## `long` variable read invalid value
 
 An invalid value is a value that has never been set.
 
@@ -136,7 +141,7 @@ In the task thread, a long variable whose upper 4 bytes and lower 4 bytes are di
 mvn compile exec:java -Dexec.mainClass=com.oldratlee.fucking.concurrency.InvalidLongDemo
 ```
 
-## 🍺 the result of concurrency count without synchronization is wrong
+## the result of concurrency count without synchronization is wrong
 
 Demo class [`com.oldratlee.fucking.concurrency.WrongCounterDemo`](src/main/java/com/oldratlee/fucking/concurrency/WrongCounterDemo.java).
 
@@ -154,7 +159,7 @@ The count value is incorrect.
 mvn compile exec:java -Dexec.mainClass=com.oldratlee.fucking.concurrency.WrongCounterDemo
 ```
 
-## 🍺 Synchronization on mutable fields
+## Synchronization on mutable fields
 
 It is common to see synchronization code on a volatile field, and the person who write it will naturally feel that this is safe and correct.  
 \# For problem analysis, see the article [Synchronization on mutable fields](http://www.ibm.com/developerworks/library/j-concurrencybugpatterns/#N100E7).
@@ -175,7 +180,7 @@ The final count of Listeners is incorrect.
 mvn compile exec:java -Dexec.mainClass=com.oldratlee.fucking.concurrency.SynchronizationOnMutableFieldDemo
 ```
 
-## 🍺 Deadlock caused by the symmetric locks
+## Deadlock caused by the symmetric locks
 
 \# For problem analysis, see the article [Synchronization on mutable fields](http://www.ibm.com/developerworks/library/j-concurrencybugpatterns/#N101C1)
 
