@@ -25,7 +25,7 @@ public class HashMapHangDemo {
 
         System.out.println("Start get in main!");
         for (int i = 0; ; ++i) {
-            for (int j = 0; j < 10000; ++j) {
+            for (int j = 0; j < 10000 ; ++j) {
                 demo.holder.get(j);
 
                 // If the hashmap occurs hang problem, the following output will not appear again.
